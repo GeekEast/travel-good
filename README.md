@@ -19,6 +19,7 @@ main("-34.928471", "138.593174", 2000, 4.5, 40); // result saved in data/places.
 ## Issues:
 - The performance is low due the restriction of Google Places API;
 - **How to append object to array asynchronously?**.
+- Latitude and Longtitude offset is a `estimate`.
 
 
 ## References
