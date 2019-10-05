@@ -32,5 +32,18 @@
     "start": "ts-node ./src/Main.ts"
   },
   "author": "James",
-  "license": "ISC"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeekEast/search-good-eat.git"
+  },
+  "keywords": [
+    "Google",
+    "Map",
+    "restaurant"
+  ],
+  "bugs": {
+    "url": "https://github.com/GeekEast/search-good-eat/issues"
+  },
+  "homepage": "https://github.com/GeekEast/search-good-eat#readme"
 }
