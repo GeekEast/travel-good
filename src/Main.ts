@@ -3,9 +3,9 @@ import { Coordinate } from './classes/Coordinate';
 import config from 'config';
 import _ from 'lodash';
 
-const main = async (lat: string, lng: string, ratings: number, reviews: number) => {
+const main = async (lat: string, lng: string, radius:number, ratings: number, reviews: number) => {
   const client = new Place(config.get("MAP.KEY"));
-  const coordinates = new Coordinate(lat, lng, 2000);
+  const coordinates = new Coordinate(lat, lng, radius);
   const centers = coordinates.centers;
   
   for (let i = 0; i < centers.length; i++) {
@@ -17,4 +17,4 @@ const main = async (lat: string, lng: string, ratings: number, reviews: number) 
   await client.save();
 }
 
-main("-34.928471", "138.593174", 4.5, 40);
+main("-34.928471", "138.593174",2000, 4.5, 40);
