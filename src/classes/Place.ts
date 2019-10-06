@@ -64,15 +64,17 @@ export class Place {
     this._json =  _.sortBy(this._json, p => -_.get(p, 'rating'));
   }
 
+  public find = () => {
+
+  }
+
 
   public getNearBy = async (location: string, radius: string, type: string, rating: number, reviewNum: number) => {
     try {
       const result = await this.searchNearBy(location, radius, type);
       const selected = <Array<Object>>(this.select(result, rating, reviewNum));
       const oneQuery = await this.appendDetails(selected);
-      console.log(_.size(oneQuery));
       this._json = [...this._json, ...oneQuery];
-      // console.log(_.size(this._json));
     } catch (e) {
       console.log("empty data...");
     }
@@ -93,7 +95,6 @@ export class Place {
 
 
 // -34.925317, 138.535173 west
-
 // -34.918092, 138.680229 east 
 
 
