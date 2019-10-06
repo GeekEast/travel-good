@@ -17,4 +17,9 @@ const main = async (lat: string, lng: string, radius: number, ratings: number, r
   await client.save();
 }
 
-main("-34.928471", "138.593174", 2000, 4.5, 40, "restaurant", "places");
+// adelaide
+// main("-34.928471", "138.593174", 2000, 4.5, 40, "restaurant", "places");
+
+// melbourne
+main("-37.807373", "144.964814", 2000, 4.5, 40, "restaurant", "mel");
+
