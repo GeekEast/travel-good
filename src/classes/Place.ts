@@ -9,9 +9,11 @@ import { save } from 'save-file';
 export class Place {
   private _key: string;
   private _json: Array<Object>;
-  constructor(key: string) {
+  private _path: string;
+  constructor(key: string, path: string) {
     this._key = key;
     this._json = [];
+    this._path = path;
   }
 
   private getDetails = async (place_id: string) => {
@@ -19,12 +21,14 @@ export class Place {
       params: {
         place_id,
         key: this._key,
-        fields: 'formatted_address,website'
+        fields: 'formatted_address,website,url,price_level'
       }
     });
     const address = _.get(res, ['data', 'result', 'formatted_address']);
     const website = _.get(res, ['data', 'result', 'website']);
-    return { address, website }
+    const price_level = _.get(res, ['data', 'result', 'price_level']);
+    const url = _.get(res, ['data', 'result', 'url']);
+    return { address, website, price_level, url }
   }
 
   private searchNearBy = async (location: string, radius: string, type: string) => {
@@ -52,8 +56,8 @@ export class Place {
     const promises = _.map(places, async p => {
       const place_id = _.get(p, 'place_id');
       const detail = await this.getDetails(place_id);
-      const { address, website } = detail;
-      return { ...p, address, website };
+      const { address, website, price_level, url } = detail;
+      return { ...p, address, website, price_level, url };
     });
     const placesWithDetails = await Promise.all(promises);
     return placesWithDetails;
@@ -61,13 +65,12 @@ export class Place {
 
 
   private sort = () => {
-    this._json =  _.sortBy(this._json, p => -_.get(p, 'rating'));
+    this._json = _.sortBy(this._json, p => -_.get(p, 'rating'));
   }
 
   public find = () => {
 
   }
-
 
   public getNearBy = async (location: string, radius: string, type: string, rating: number, reviewNum: number) => {
     try {
@@ -81,15 +84,14 @@ export class Place {
   }
 
   private removeDuplicate = () => {
-    this._json =  _.uniqWith(this._json, _.isEqual);
+    this._json = _.uniqWith(this._json, _.isEqual);
   }
 
   public save = async () => {
     this.removeDuplicate();
     this.sort();
     const csv = toJson(this._json as Array<Object>);
-    // console.log(csv);
-    await save(csv, "data/places.csv");
+    await save(csv, `data/${this._path}.csv`);
   }
 }
 
