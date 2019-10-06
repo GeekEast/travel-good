@@ -24,6 +24,7 @@ main("-34.928471", "138.593174", 2000, 4.5, 40); // result saved in data/places.
 
 ## Sample
 - Adelaide
+  
 |Name                                         |Rating|Number of Reviews|Ranking|Address                                                                 |Website                                                                                           |Type      |Tag           |
 |---------------------------------------------|------|-----------------|-------|------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----------|--------------|
 |NOLA Craft Beer & Whiskey                    |4.6   |769              |3537.4 |28 Vardon Ave, Adelaide SA 5000, Australia                              |http://www.nolaadelaide.com/                                                                      |Bar       |              |
