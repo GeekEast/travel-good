@@ -32,6 +32,7 @@ main("-34.928471", "138.593174", 2000, 4.5, 40); // result saved in data/places.
 - hospital
 - spa
 - lodging
+- [More](https://developers.google.com/places/web-service/supported_types)
 
 ## Issues:
 - The performance is low due the restriction of Google Places API;
