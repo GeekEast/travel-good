@@ -9,11 +9,17 @@
 ## Quick Start
 - Get [API Key](https://developers.google.com/maps/documentation/javascript/get-api-key): `export GOOGLE_MAP_API_KEY="{google_map_api_key}"`
 - Run code: `yarn && yarn start`
+- Search Restaurants in `Adelaide/Melbourne/Sydney` with `Ratings >= 4.5` && `Reviews >= 40`
+- You could use `Promise` to run these search `asynchronously`
 ```javascript
-// get restaurants information with constraints:
-// a radius of 2000m arount place(lat:-34.928471, lng:138.593174)
-// with ratings >= 4.5 and number of reviews >= 40
-main("-34.928471", "138.593174", 2000, 4.5, 40); // result saved in data/places.csv
+// adelaide file saved in data/adelaide.csv
+main("-34.928471", "138.593174", 2000, 4.5, 40, "restaurant", "adelaide");
+
+// melbourne file saved in data/mel.csv
+main("-37.807373", "144.964814", 2000, 4.5, 40, "restaurant", "mel");
+
+// sydney file saved in data/sydney.csv
+main("-33.864064", "151.208064", 2000, 4.5, 40, "restaurant", "sydney");
 ```
 ## Types
 - restaurant
