@@ -10,7 +10,7 @@
 - Get [API Key](https://developers.google.com/maps/documentation/javascript/get-api-key): `export GOOGLE_MAP_API_KEY="{google_map_api_key}"`
 - Run code: `yarn && yarn start`
 - Search Restaurants in `Adelaide/Melbourne/Sydney` with `Ratings >= 4.5` && `Reviews >= 40`
-- You could use `Promise` to run these search `asynchronously`
+> You could run these search `asynchronously`
 ```javascript
 // adelaide file saved in data/adelaide.csv
 main("-34.928471", "138.593174", 2000, 4.5, 40, "restaurant", "adelaide");
