@@ -34,6 +34,6 @@ const main = async (lat: string, lng: string, radius: number, ratings: number, r
 // main("-33.864064", "151.208064", 2000, 4.5, 40, "restaurant", "sydney_restaurants");
 
 // brisbane
-main("-27.468972", "153.025152", 2000, 4.5, 40, "restaurant", "brisbane_restaurants");
+main("-27.457426", "153.040709", 500, 4.5, 40, "restaurant", "brisbane_james_street_restaurants");
 
 
